@@ -1,88 +1,55 @@
-```
 import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center p-8 md:p-12 lg:p-24 font-[family-name:var(--font-geist-sans)] relative overflow-hidden">
-      
-      {/* Background Decorative Elements */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
-        <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-blue-900/20 rounded-full blur-[100px]" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-yellow-600/10 rounded-full blur-[100px]" />
+    <div style={{ backgroundColor: '#0a0f1c', color: 'white', minHeight: '100vh', display: 'flex', flexDirection: 'column', width: '100%', position: 'relative', fontFamily: 'sans-serif' }}>
+
+      {/* 배경 장식 */}
+      <div style={{ position: 'fixed', inset: 0, zIndex: 0, pointerEvents: 'none' }}>
+        <div style={{ position: 'absolute', top: '-10%', left: '-10%', width: '500px', height: '500px', backgroundColor: 'rgba(30, 58, 138, 0.1)', borderRadius: '50%', filter: 'blur(100px)' }} />
       </div>
 
-      <main className="flex flex-col gap-16 items-center text-center max-w-6xl w-full z-10">
-        
-        {/* Header Section */}
-        <header className="flex flex-col gap-6 items-center animate-fade-in-up">
-          <div className="mb-4">
-            {/* Logo Placeholder */}
-            <h1 className="text-2xl font-bold tracking-widest uppercase text-white/80">Butler Agency</h1>
-          </div>
-          <h2 className="text-4xl sm:text-5xl font-extrabold leading-tight">
+      {/* 메인 콘텐츠: 상하 여백을 60px로 줄여 더욱 컴팩트하게 배치 */}
+      <main style={{ flex: '1 0 auto', display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', maxWidth: '1200px', margin: '0 auto', padding: '60px 24px', position: 'relative', zIndex: 1 }}>
+
+        {/* 헤더 섹션: 간결한 여백 조정 */}
+        <header style={{ textAlign: 'center', marginBottom: '60px' }}>
+          <h1 style={{ fontSize: '16px', fontWeight: 'bold', letterSpacing: '0.3em', color: 'rgba(255,255,255,0.5)', marginBottom: '15px' }}>BUTLER AGENCY</h1>
+          <h2 style={{ fontSize: '32px', fontWeight: '800', lineHeight: 1.3, marginBottom: '15px' }}>
             대표님의 경영 리소스를 최소화하는<br />
-            <span className="text-gradient-gold">스마트한 파트너</span>
+            <span style={{ color: '#d4af37' }}>스마트한 파트너</span>
           </h2>
-          <p className="text-lg sm:text-xl text-gray-300 max-w-2xl font-light">
-            대표님은 사업에만 집중하세요.<br className="sm:hidden" /> 관리는 저희가 맡겠습니다.
-          </p>
+          <p style={{ fontSize: '15px', color: '#9ca3af' }}>대표님은 사업에만 집중하세요. 관리는 저희가 맡겠습니다.</p>
         </header>
 
-        {/* Card Selection Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 xl:gap-16 w-full max-w-[1200px] mt-8 px-4 lg:px-0">
-          
-          {/* Pre-founder Card */}
-          <div className="group glass-panel rounded-[2rem] p-12 flex flex-col justify-between items-center text-center gap-10 transition-all duration-500 hover:border-[#d4af37]/60 hover:shadow-[0_0_40px_rgba(212,175,55,0.15)] hover:-translate-y-2 relative overflow-hidden">
-             <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-             
-             <div className="flex flex-col items-center gap-5 z-10">
-                <span className="px-5 py-2 rounded-full text-sm font-bold bg-[#d4af37]/20 text-[#d4af37] border border-[#d4af37]/30 tracking-wide">
-                  예비 창업자
-                </span>
-                <h3 className="text-3xl sm:text-4xl font-bold text-white mt-2">
-                  창업 패키지
-                </h3>
-                <p className="text-gray-300 leading-relaxed text-lg break-keep">
-                  아직 법인을 설립하지 않으셨나요?<br />
-                  법인 설립부터 초기 세팅까지,<br />
-                  첫걸음을 완벽하게 가이드합니다.
-                </p>
-             </div>
+        {/* 카드 영역 */}
+        <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
 
-             <button className="w-full py-5 rounded-2xl bg-white/10 border border-white/20 text-white font-bold text-xl hover:bg-[#d4af37] hover:border-[#d4af37] hover:text-black transition-all duration-300 shadow-lg mt-auto z-10">
-               시작하기
-             </button>
+          {/* 1. 창업 패키지: 패딩을 20px로 줄여 높이를 압축 */}
+          <div style={{ width: '100%', maxWidth: '460px', backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '20px', padding: '24px 40px', textAlign: 'center', marginBottom: '30px', boxShadow: '0 10px 20px rgba(0,0,0,0.2)' }}>
+            <span style={{ display: 'inline-block', padding: '2px 10px', borderRadius: '999px', fontSize: '9px', fontWeight: 'bold', backgroundColor: 'rgba(212, 175, 55, 0.1)', color: '#d4af37', border: '1px solid rgba(212, 175, 55, 0.2)', marginBottom: '12px' }}>PRE-FOUNDER</span>
+            <h3 style={{ fontSize: '20px', fontWeight: 'bold', marginBottom: '8px' }}>창업 패키지</h3>
+            <p style={{ color: '#9ca3af', marginBottom: '20px', fontSize: '13px', lineHeight: 1.5 }}>법인 설립부터 초기 세팅까지 완벽 가이드</p>
+            <button style={{ width: '100%', padding: '12px', borderRadius: '10px', backgroundColor: 'transparent', border: '1px solid rgba(212, 175, 55, 0.4)', color: 'white', fontWeight: 'bold', fontSize: '14px', cursor: 'pointer' }}>시작하기</button>
           </div>
 
-          {/* Existing Startup Card */}
-          <div className="group glass-panel rounded-[2rem] p-12 flex flex-col justify-between items-center text-center gap-10 transition-all duration-500 hover:border-[#d4af37]/60 hover:shadow-[0_0_40px_rgba(212,175,55,0.15)] hover:-translate-y-2 relative overflow-hidden">
-             <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-
-             <div className="flex flex-col items-center gap-5 z-10">
-                <span className="px-5 py-2 rounded-full text-sm font-bold bg-blue-500/20 text-blue-300 border border-blue-400/30 tracking-wide">
-                  기업 고객
-                </span>
-                <h3 className="text-3xl sm:text-4xl font-bold text-white mt-2">
-                  스타트업 패키지
-                </h3>
-                <p className="text-gray-300 leading-relaxed text-lg break-keep">
-                  이미 운영 중인 기업이신가요?<br />
-                  4대 모듈 정밀 진단으로<br />
-                  빈틈없는 경영 시스템을 구축하세요.
-                </p>
-             </div>
-
-             <button className="w-full py-5 rounded-2xl bg-white/10 border border-white/20 text-white font-bold text-xl hover:bg-[#d4af37] hover:border-[#d4af37] hover:text-black transition-all duration-300 shadow-lg mt-auto z-10">
-               진단받기
-             </button>
+          {/* 2. 스타트업 패키지: 인사 모듈 집중 및 컴팩트 디자인 */}
+          <div style={{ width: '100%', maxWidth: '460px', backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '20px', padding: '24px 40px', textAlign: 'center', marginBottom: '40px', boxShadow: '0 10px 20px rgba(0,0,0,0.2)' }}>
+            <span style={{ display: 'inline-block', padding: '2px 10px', borderRadius: '999px', fontSize: '9px', fontWeight: 'bold', backgroundColor: 'rgba(59, 130, 246, 0.1)', color: '#93c5fd', border: '1px solid rgba(59, 130, 246, 0.2)', marginBottom: '12px' }}>CORPORATE</span>
+            <h3 style={{ fontSize: '20px', fontWeight: 'bold', marginBottom: '4px' }}>스타트업 패키지</h3>
+            <p style={{ color: '#60a5fa', fontSize: '11px', fontWeight: 'bold', marginBottom: '10px' }}>인사 모듈 집중 진단</p>
+            <p style={{ color: '#9ca3af', marginBottom: '20px', fontSize: '13px', lineHeight: 1.5 }}>노무 리스크 해결 및 팀 빌딩 최적화</p>
+            <button style={{ width: '100%', padding: '12px', borderRadius: '10px', backgroundColor: '#3b82f6', border: 'none', color: 'white', fontWeight: 'bold', fontSize: '14px', cursor: 'pointer' }}>인사 진단 시작</button>
           </div>
 
         </div>
       </main>
 
-      <footer className="absolute bottom-6 text-xs text-gray-600">
-        © 2026 Butler Agency. All rights reserved.
+      {/* 푸터 영역 */}
+      <footer style={{ width: '100%', padding: '30px 0', textAlign: 'center', fontSize: '10px', color: '#4b5563', borderTop: '1px solid rgba(255, 255, 255, 0.05)', backgroundColor: '#0a0f1c', marginTop: 'auto' }}>
+        © 2026 BUTLER AGENCY. ALL RIGHTS RESERVED.
       </footer>
+
     </div>
   );
 }

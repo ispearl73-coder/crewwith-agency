@@ -13,6 +13,22 @@ export default function DiagnosisResultPage() {
     // 여기서는 'standard'를 기본 추천으로 설정하되, 로직에 따라 변경 가능하도록 구성.
     const [recommendedTier, setRecommendedTier] = useState<'basic' | 'standard' | 'premium'>('standard');
 
+    // 결제 모달 상태
+    const [selectedPackage, setSelectedPackage] = useState<'basic' | 'standard' | 'premium' | null>(null);
+    const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
+    const [phoneNumber, setPhoneNumber] = useState("");
+
+    const packageInfo = {
+        basic: { name: "스타트업 베이직", price: "49,000" },
+        standard: { name: "스타트업 스탠다드", price: "199,000" },
+        premium: { name: "스타트업 프리미엄", price: "699,000" },
+    };
+
+    const handleApply = (tier: 'basic' | 'standard' | 'premium') => {
+        setSelectedPackage(tier);
+        setIsPaymentModalOpen(true);
+    };
+
     // 전문가 티타임 신청 시 알림
     const handleTeatimeRequest = () => {
         alert("접수되었습니다. 담당 버틀러가 확인 후 곧 연락드리겠습니다. 잠시만 기다려 주십시오.");
@@ -228,7 +244,9 @@ export default function DiagnosisResultPage() {
                                                 </li>
                                             </ul>
                                         </div>
-                                        <button className={`w-full py-5 mt-auto rounded-xl font-black transition-all border mb-2 ${recommendedTier === 'basic' ? 'bg-[#d4af37] text-black hover:bg-[#b5942f] border-[#d4af37]' : 'bg-white/10 text-white hover:bg-white/20 border-white/10'}`}>신청하기</button>
+                                        <button
+                                            onClick={() => handleApply('basic')}
+                                            className={`w-full py-5 mt-auto rounded-xl font-black transition-all border mb-2 ${recommendedTier === 'basic' ? 'bg-[#d4af37] text-black hover:bg-[#b5942f] border-[#d4af37]' : 'bg-white/10 text-white hover:bg-white/20 border-white/10'}`}>신청하기</button>
                                     </motion.div>
 
                                     {/* 2. 스탠다드 패키지 */}
@@ -266,7 +284,9 @@ export default function DiagnosisResultPage() {
                                                 </li>
                                             </ul>
                                         </div>
-                                        <button className={`w-full py-5 mt-auto rounded-xl font-black transition-all border mb-2 ${recommendedTier === 'standard' ? 'bg-[#d4af37] text-black hover:bg-[#b5942f] border-[#d4af37]' : 'bg-white/10 text-white hover:bg-white/20 border-white/10'}`}>신청하기</button>
+                                        <button
+                                            onClick={() => handleApply('standard')}
+                                            className={`w-full py-5 mt-auto rounded-xl font-black transition-all border mb-2 ${recommendedTier === 'standard' ? 'bg-[#d4af37] text-black hover:bg-[#b5942f] border-[#d4af37]' : 'bg-white/10 text-white hover:bg-white/20 border-white/10'}`}>신청하기</button>
                                     </motion.div>
 
                                     {/* 3. 프리미엄 패키지 */}
@@ -304,7 +324,9 @@ export default function DiagnosisResultPage() {
                                                 </li>
                                             </ul>
                                         </div>
-                                        <button className={`w-full py-5 mt-auto rounded-xl font-black transition-all border mb-2 ${recommendedTier === 'premium' ? 'bg-[#d4af37] text-black hover:bg-[#b5942f] border-[#d4af37]' : 'bg-white/10 text-white hover:bg-white/20 border-white/10'}`}>신청하기</button>
+                                        <button
+                                            onClick={() => handleApply('premium')}
+                                            className={`w-full py-5 mt-auto rounded-xl font-black transition-all border mb-2 ${recommendedTier === 'premium' ? 'bg-[#d4af37] text-black hover:bg-[#b5942f] border-[#d4af37]' : 'bg-white/10 text-white hover:bg-white/20 border-white/10'}`}>신청하기</button>
                                     </motion.div>
                                 </div>
 
@@ -320,6 +342,7 @@ export default function DiagnosisResultPage() {
                             </motion.div>
                         )}
                     </AnimatePresence>
+
                 </div>
             </div>
 
@@ -329,6 +352,116 @@ export default function DiagnosisResultPage() {
             <footer className="w-full py-12 text-center opacity-30 text-[10px] font-bold tracking-[0.2em] bg-[#0a0f1c]">
                 © 2026 CREWWITH BUTLER AGENCY. ALL RIGHTS RESERVED.
             </footer>
+
+            {/* [D] 버틀러 결제 가이드 모달 - 화면 최상단 레이어 배치를 위해 이동 */}
+            <AnimatePresence>
+                {isPaymentModalOpen && selectedPackage && (
+                    <div className="fixed inset-0 z-[100] flex items-center justify-center px-6">
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            onClick={() => setIsPaymentModalOpen(false)}
+                            className="absolute inset-0 bg-black/80 backdrop-blur-sm"
+                        />
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                            animate={{ opacity: 1, scale: 1, y: 0 }}
+                            exit={{ opacity: 0, scale: 0.9, y: 20 }}
+                            className="relative w-full max-w-[500px] bg-[#1a1f2e] border border-white/10 rounded-[2rem] p-10 shadow-2xl overflow-hidden"
+                        >
+                            <div className="absolute top-0 right-0 -mr-20 -mt-20 w-60 h-60 bg-[#d4af37]/10 rounded-full blur-[80px]" />
+
+                            <div className="relative z-10 text-center">
+                                <div className="w-16 h-1 bg-[#d4af37] mx-auto mb-8 rounded-full opacity-50" />
+                                <h3 className="text-3xl font-black mb-10 text-white tracking-tight">[ 버틀러 결제 가이드 ]</h3>
+
+                                <div className="space-y-8 text-left mb-12">
+                                    <div className="bg-white/5 rounded-2xl p-6 border border-white/5">
+                                        <p className="text-gray-400 text-sm mb-2 font-medium">선택 패키지 요약</p>
+                                        <p className="text-xl font-bold text-white">
+                                            "대표님, <span className="text-[#d4af37]">{packageInfo[selectedPackage].name}</span>를 선택하셨습니다."
+                                        </p>
+                                    </div>
+
+                                    <div className="bg-white/5 rounded-2xl p-6 border border-white/5">
+                                        <p className="text-gray-400 text-sm mb-2 font-medium">결제 금액</p>
+                                        <p className="text-2xl font-black text-white">
+                                            월 {packageInfo[selectedPackage].price}원 <span className="text-sm font-normal text-gray-500">(VAT 별도)</span>
+                                        </p>
+                                    </div>
+
+                                    <div className="bg-white/5 rounded-2xl p-6 border border-white/5">
+                                        <p className="text-gray-400 text-sm mb-3 font-medium">연락처 입력 (안내 문자 발송용)</p>
+                                        <input
+                                            type="tel"
+                                            value={phoneNumber}
+                                            onChange={(e) => setPhoneNumber(e.target.value)}
+                                            placeholder="010-0000-0000"
+                                            className="w-full bg-black/40 border border-white/10 rounded-xl px-5 py-3 text-white focus:border-[#d4af37] outline-none transition-all placeholder:text-gray-700"
+                                        />
+                                    </div>
+
+                                    <div className="space-y-4">
+                                        <p className="text-gray-400 text-sm font-medium px-2">결제 수단 선택</p>
+                                        <div className="grid grid-cols-1 gap-3">
+                                            <div className="bg-white/5 border border-white/10 rounded-xl p-5 relative opacity-60">
+                                                <div className="flex justify-between items-center mb-1">
+                                                    <span className="font-bold text-white">신용카드</span>
+                                                    <span className="text-[10px] bg-white/10 px-2 py-0.5 rounded text-gray-400">준비 중</span>
+                                                </div>
+                                                <p className="text-xs text-gray-500">"간편한 정기 결제를 준비 중입니다."</p>
+                                            </div>
+                                            <div className="bg-[#d4af37]/10 border border-[#d4af37]/30 rounded-xl p-5 relative">
+                                                <div className="flex justify-between items-center mb-1">
+                                                    <span className="font-bold text-[#d4af37]">계좌이체 / 무통장</span>
+                                                    <span className="text-[10px] bg-[#d4af37] px-2 py-0.5 rounded text-black font-black uppercase">Most Popular</span>
+                                                </div>
+                                                <p className="text-xs text-gray-300">"세금계산서 발행이 가능합니다."</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="space-y-3 pt-4">
+                                    <motion.button
+                                        whileHover={{ scale: 1.02 }}
+                                        whileTap={{ scale: 0.98 }}
+                                        onClick={() => {
+                                            if (!phoneNumber) {
+                                                alert("연락처를 입력해 주세요.");
+                                                return;
+                                            }
+                                            alert(`${phoneNumber} 번호로 결제 안내 문자가 발송되었습니다. (시뮬레이션)`);
+                                            setIsPaymentModalOpen(false);
+                                        }}
+                                        className="w-full py-5 rounded-xl bg-[#d4af37] text-black font-black text-lg transition-all shadow-lg"
+                                    >
+                                        결제 정보를 문자로 보내드리기
+                                    </motion.button>
+                                    <motion.button
+                                        whileHover={{ scale: 1.02 }}
+                                        whileTap={{ scale: 0.98 }}
+                                        onClick={() => {
+                                            alert("추가 상담이 접수되었습니다. 담당 버틀러가 곧 연락드립니다. (시뮬레이션)");
+                                            setIsPaymentModalOpen(false);
+                                        }}
+                                        className="w-full py-5 rounded-xl bg-white/5 border border-white/10 text-white font-bold text-lg hover:bg-white/10 transition-all"
+                                    >
+                                        버틀러와 직접 상담
+                                    </motion.button>
+                                    <button
+                                        onClick={() => setIsPaymentModalOpen(false)}
+                                        className="text-gray-600 text-sm mt-4 hover:text-white transition-colors"
+                                    >
+                                        창 닫기
+                                    </button>
+                                </div>
+                            </div>
+                        </motion.div>
+                    </div>
+                )}
+            </AnimatePresence>
         </div>
     );
 }

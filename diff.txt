@@ -1,0 +1,219 @@
+﻿diff --git a/src/app/dashboard/page.tsx b/src/app/dashboard/page.tsx
+index 8df66f4..6ae36fb 100644
+--- a/src/app/dashboard/page.tsx
++++ b/src/app/dashboard/page.tsx
+@@ -32,7 +32,7 @@ export default function ButlerPremiumDashboard() {
+                                 { name: "?쒖? ?묒떇??, icon: "?뱚", tier: 'B' },
+                                 { name: "湲됱뿬 愿由?媛?대뱶", icon: "?뮥", tier: 'B' },
+                             ].map((item) => (
+-                                <div key={item.name} className={`flex items-center gap-5 px-5 py-4 rounded-2xl transition-all cursor-pointer ${item.active ? "bg-white/5 text-[#d4af37]" : "text-gray-500 hover:text-white"}`}>
++                                <div key={item.name} className={`flex items-center gap-5 px-5 py-4 rounded-xl transition-all cursor-pointer ${item.active ? "bg-white/5 text-[#d4af37]" : "text-gray-500 hover:text-white"}`}>
+                                     <span className="text-lg opacity-80">{item.icon}</span>
+                                     <span className="text-sm font-bold">{item.name}</span>
+                                 </div>
+@@ -44,10 +44,10 @@ export default function ButlerPremiumDashboard() {
+                     <div>
+                         <p className="text-[11px] text-[#d4af37] font-black mb-6 px-2 uppercase tracking-[0.2em] opacity-80">蹂꾨룄 ?붿껌 ?쒕퉬??/p>
+                         <div className="space-y-3">
+-                            <div className="px-5 py-4 bg-[#d4af37]/5 border border-[#d4af37]/20 rounded-2xl cursor-pointer hover:bg-[#d4af37]/10 transition-all">
++                            <div className="px-5 py-4 bg-[#d4af37]/5 border border-[#d4af37]/20 rounded-xl cursor-pointer hover:bg-[#d4af37]/10 transition-all">
+                                 <p className="text-sm font-bold text-[#d4af37]">梨꾩슜 ???諛??ㅻ뱶?뚰똿</p>
+                             </div>
+-                            <div className="px-5 py-4 bg-white/5 border border-white/10 rounded-2xl cursor-pointer hover:bg-white/10 transition-all">
++                            <div className="px-5 py-4 bg-white/5 border border-white/10 rounded-xl cursor-pointer hover:bg-white/10 transition-all">
+                                 <p className="text-sm font-bold text-gray-400">留욎땄 ?됯? ?쒖뒪???ㅺ퀎</p>
+                             </div>
+                         </div>
+@@ -55,111 +55,111 @@ export default function ButlerPremiumDashboard() {
+                 </nav>
+ 
+                 {/* ?섎떒 ?꾨줈???뱀뀡 */}
+-                <div className="mt-auto p-6 bg-white/[0.03] rounded-3xl border border-white/5">
++                <div className="mt-auto p-6 bg-white/[0.03] rounded-2xl border border-white/5">
+                     <div className="flex items-center gap-5 mb-5">
+-                        <div className="w-12 h-12 bg-[#d4af37] rounded-2xl flex items-center justify-center font-black text-black text-xs italic shadow-lg shadow-yellow-900/20">CEO</div>
++                        <div className="w-12 h-12 bg-[#d4af37] rounded-xl flex items-center justify-center font-black text-black text-xs italic shadow-lg shadow-yellow-900/20">CEO</div>
+                         <div>
+                             <p className="text-sm font-black text-white">?댁씪????쒕떂</p>
+                             <p className="text-[10px] text-gray-500 font-bold uppercase tracking-widest mt-1">踰좎씠吏??깃툒</p>
+                         </div>
+                     </div>
+-                    <button className="w-full py-3 bg-white/5 text-[11px] font-black rounded-xl border border-white/5 hover:bg-white/10 transition-all text-gray-400">?ㅼ젙 諛?濡쒓렇?꾩썐</button>
++                    <button className="w-full py-3 bg-white/5 text-[11px] font-black rounded-lg border border-white/5 hover:bg-white/10 transition-all text-gray-400">?ㅼ젙 諛?濡쒓렇?꾩썐</button>
+                 </div>
+             </aside>
+ 
+-            {/* 2. 硫붿씤 而⑦뀗痢??곸뿭: p-24 ?⑤뵫?쇰줈 ?뺣룄?곸씤 ?щ갚 ?뺣낫 */}
+-            <main className="flex-1 ml-[320px] p-24 max-w-[1440px]">
++            {/* 2. 硫붿씤 而⑦뀗痢??곸뿭: p-60 ?⑤뵫?쇰줈 ?곹븯醫뚯슦 紐⑤뱺 諛⑺뼢???뺣룄?곸씤 ?щ갚 ?뺣낫 */}
++            <main className="flex-1 ml-[320px] p-60 min-h-screen flex flex-col bg-[#0a0b0d]">
+ 
+-                {/* ?곷떒 ?ㅻ뜑: 2踰??ъ쭊???뺢컝???꾧퀎 ?ы쁽 */}
+-                <header className="flex justify-between items-end mb-24">
+-                    <div>
+-                        <div className="flex items-center gap-3 mb-4">
+-                            <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse shadow-[0_0_10px_rgba(34,197,94,0.5)]" />
+-                            <p className="text-[12px] text-gray-500 font-bold tracking-widest uppercase">System Operational</p>
+-                        </div>
+-                        <h2 className="text-5xl font-black tracking-tight text-white italic underline underline-offset-[12px] decoration-[#d4af37]/20">?몄궗 寃쎌쁺 ??쒕낫??/h2>
+-                    </div>
+-                    <div className="bg-[#d4af37]/10 border border-[#d4af37]/30 px-8 py-5 rounded-[2rem] text-right shadow-2xl">
+-                        <p className="text-[11px] text-[#d4af37] font-black uppercase mb-1 tracking-widest opacity-60">蹂댁븞 湲덇퀬 蹂닿? 湲곌컙</p>
+-                        <p className="text-2xl font-black text-[#d4af37]">D-{daysLeft} <span className="text-sm font-normal ml-1">???⑥쓬</span></p>
+-                    </div>
+-                </header>
+-
+-                {/* 3. ?꾩젽 ?덉씠?꾩썐: gap-12濡??뺣낫 媛꾩쓽 ?④뎄硫띿쓣 ?レ쓬 */}
+-                <div className="flex flex-col gap-24">
+-
+-                    {/* [?뱀뀡 1] 二쇱슂 吏??諛?吏꾪뻾 ?곹솴 */}
+-                    <section className="grid grid-cols-12 gap-12 items-stretch">
+-
+-                        {/* ?몄궗 ?덉젙 吏?? 2踰??ъ쭊??Runway ?꾩젽 鍮꾨? */}
+-                        <div className="col-span-5 bg-gradient-to-br from-[#1c1e26] to-[#0a0b0d] border border-white/10 rounded-[3rem] p-12 shadow-2xl relative overflow-hidden group">
+-                            <div className="absolute top-0 right-0 p-10 opacity-5 text-5xl italic font-black text-blue-500 uppercase">Status</div>
+-                            <p className="text-xs font-black text-blue-500 mb-12 uppercase tracking-[0.3em] flex items-center gap-3">
+-                                <span className="w-2 h-2 bg-blue-500 rounded-full" /> ?몄궗 愿由??덉젙??-                            </p>
+-                            <div className="flex items-baseline gap-4 mb-10">
+-                                <span className="text-9xl font-black tracking-tighter italic text-white group-hover:scale-105 transition-transform duration-700">82.0</span>
+-                                <span className="text-3xl font-bold text-gray-700 italic">??/span>
+-                            </div>
+-                            <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden mb-12">
+-                                <div className="h-full bg-gradient-to-r from-blue-600 to-indigo-600 w-[82%]" />
++                <div className="max-w-[1440px] w-full mx-auto flex-grow flex flex-col gap-32">
++                    {/* ?곷떒 ?ㅻ뜑: ?곷떒 ?щ갚??異⑸텇??二쇱뼱 ?꾨젅?꾧낵 遺꾨━ */}
++                    <header className="flex justify-between items-end mb-20 mt-10">
++                        <div>
++                            <div className="flex items-center gap-3 mb-6">
++                                <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse shadow-[0_0_10px_rgba(34,197,94,0.5)]" />
++                                <p className="text-[12px] text-gray-500 font-bold tracking-widest uppercase">System Operational</p>
+                             </div>
+-                            <p className="text-base text-gray-500 leading-relaxed font-medium">??쒕떂, 湲곗큹 ?쒕쪟 遺꾩꽍 寃곌낵 ?꾩옱 <span className="text-white font-bold italic">?꾩닔 ?쒕쪟 9醫낆씠 ?덉쟾?섍쾶 蹂닿?</span> 以묒엯?덈떎.</p>
++                            <h2 className="text-5xl font-black tracking-tight text-white italic underline underline-offset-[12px] decoration-[#d4af37]/20">?몄궗 寃쎌쁺 ??쒕낫??/h2>
+                         </div>
+-
+-                        {/* ?곗꽑 議곗튂 ?ы빆: 2踰??ъ쭊??Action Required 鍮꾨? */}
+-                        <div className="col-span-7 bg-[#16181d] border border-white/10 rounded-[3rem] p-12 flex flex-col justify-between shadow-xl">
+-                            <div className="flex justify-between items-center mb-12">
+-                                <h4 className="text-2xl font-black text-white italic tracking-tight">踰꾪????먭? ?뚮┝</h4>
+-                                <span className="text-[10px] bg-yellow-500/10 text-yellow-500 px-4 py-2 rounded-full font-black uppercase tracking-widest border border-yellow-500/20">Action Required</span>
++                        <div className="bg-[#d4af37]/10 border border-[#d4af37]/30 px-10 py-6 rounded-[1.25rem] text-right shadow-2xl">
++                            <p className="text-[11px] text-[#d4af37] font-black uppercase mb-2 tracking-widest opacity-60">蹂댁븞 湲덇퀬 蹂닿? 湲곌컙</p>
++                            <p className="text-2xl font-black text-[#d4af37]">D-{daysLeft} <span className="text-sm font-normal ml-1">???⑥쓬</span></p>
++                        </div>
++                    </header>
++
++                    {/* 3. ?꾩젽 ?덉씠?꾩썐: gap-32濡??뱀뀡 媛??④뎄硫??뺣낫 */}
++                    <div className="flex flex-col gap-32">
++
++                        {/* [?뱀뀡 1] 二쇱슂 吏??諛?吏꾪뻾 ?곹솴 */}
++                        <section className="grid grid-cols-12 gap-12 items-stretch">
++
++                            {/* ?몄궗 ?덉젙 吏??*/}
++                            <div className="col-span-12 lg:col-span-5 bg-gradient-to-br from-[#1c1e26] to-[#0a0b0d] border border-white/10 rounded-[2rem] p-12 shadow-2xl relative overflow-hidden group">
++                                <div className="absolute top-0 right-0 p-10 opacity-5 text-5xl italic font-black text-blue-500 uppercase">Status</div>
++                                <p className="text-xs font-black text-blue-500 mb-12 uppercase tracking-[0.3em] flex items-center gap-3">
++                                    <span className="w-2 h-2 bg-blue-500 rounded-full" /> ?몄궗 愿由??덉젙??+                                </p>
++                                <div className="flex items-baseline gap-4 mb-10">
++                                    <span className="text-9xl font-black tracking-tighter italic text-white group-hover:scale-105 transition-transform duration-700">82.0</span>
++                                    <span className="text-3xl font-bold text-gray-700 italic">??/span>
++                                </div>
++                                <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden mb-12">
++                                    <div className="h-full bg-gradient-to-r from-blue-600 to-indigo-600 w-[82%]" />
++                                </div>
++                                <p className="text-base text-gray-500 leading-relaxed font-medium">??쒕떂, 湲곗큹 ?쒕쪟 遺꾩꽍 寃곌낵 ?꾩옱 <span className="text-white font-bold italic">?꾩닔 ?쒕쪟 9醫낆씠 ?덉쟾?섍쾶 蹂닿?</span> 以묒엯?덈떎.</p>
+                             </div>
+-                            <div className="space-y-8">
+-                                <div className="flex items-center gap-8 p-8 bg-white/[0.02] border border-white/5 rounded-[2rem] hover:bg-white/5 transition-all cursor-pointer">
+-                                    <div className="w-14 h-14 bg-yellow-500/10 rounded-xl flex items-center justify-center text-2xl shadow-inner">?뱶</div>
+-                                    <div>
+-                                        <p className="text-lg font-bold text-gray-100">踰뺤젙 ?섎Т 援먯쑁 誘몄씠??/p>
+-                                        <p className="text-sm text-gray-500 mt-2 italic">2026?????꾩쭅??????깊씗濡??덈갑 援먯쑁 媛?대뱶 ?뺤씤???꾩슂?⑸땲??</p>
+-                                    </div>
++
++                            {/* ?곗꽑 議곗튂 ?ы빆 */}
++                            <div className="col-span-12 lg:col-span-7 bg-[#16181d] border border-white/10 rounded-[2rem] p-12 flex flex-col justify-between shadow-xl">
++                                <div className="flex justify-between items-center mb-12">
++                                    <h4 className="text-2xl font-black text-white italic tracking-tight">踰꾪????먭? ?뚮┝</h4>
++                                    <span className="text-[10px] bg-yellow-500/10 text-yellow-500 px-4 py-2 rounded-full font-black uppercase tracking-widest border border-yellow-500/20">Action Required</span>
+                                 </div>
+-                                <div className="flex items-center gap-8 p-8 bg-white/[0.02] border border-white/5 rounded-[2rem] hover:bg-white/5 transition-all cursor-pointer">
+-                                    <div className="w-14 h-14 bg-blue-500/10 rounded-2xl flex items-center justify-center text-2xl shadow-inner">?뫁</div>
+-                                    <div>
+-                                        <p className="text-lg font-bold text-gray-100">?몄궗 DB ?뺣낫 蹂댁셿</p>
+-                                        <p className="text-sm text-gray-500 mt-2 italic">?좉퇋 ?낆궗??2?몄쓽 鍮꾩긽 ?곕씫泥??뺣낫媛 ?꾨씫?섏뼱 ?덉뒿?덈떎.</p>
++                                <div className="space-y-8">
++                                    <div className="flex items-center gap-8 p-8 bg-white/[0.02] border border-white/5 rounded-[1.25rem] hover:bg-white/5 transition-all cursor-pointer">
++                                        <div className="w-14 h-14 bg-yellow-500/10 rounded-xl flex items-center justify-center text-2xl shadow-inner">?뱶</div>
++                                        <div>
++                                            <p className="text-lg font-bold text-gray-100">踰뺤젙 ?섎Т 援먯쑁 誘몄씠??/p>
++                                            <p className="text-sm text-gray-500 mt-2 italic">2026?????꾩쭅??????깊씗濡??덈갑 援먯쑁 媛?대뱶 ?뺤씤???꾩슂?⑸땲??</p>
++                                        </div>
++                                    </div>
++                                    <div className="flex items-center gap-8 p-8 bg-white/[0.02] border border-white/5 rounded-[1.25rem] hover:bg-white/5 transition-all cursor-pointer">
++                                        <div className="w-14 h-14 bg-blue-500/10 rounded-xl flex items-center justify-center text-2xl shadow-inner">?뫁</div>
++                                        <div>
++                                            <p className="text-lg font-bold text-gray-100">?몄궗 DB ?뺣낫 蹂댁셿</p>
++                                            <p className="text-sm text-gray-500 mt-2 italic">?좉퇋 ?낆궗??2?몄쓽 鍮꾩긽 ?곕씫泥??뺣낫媛 ?꾨씫?섏뼱 ?덉뒿?덈떎.</p>
++                                        </div>
+                                     </div>
+                                 </div>
+                             </div>
+-                        </div>
+-                    </section>
+-
+-                    {/* [?뱀뀡 2] ?ㅻТ 媛?대뱶: ?됰꼮??洹몃━??媛꾧꺽 */}
+-                    <section>
+-                        <p className="text-[12px] text-gray-600 font-black mb-10 uppercase tracking-[0.4em] flex items-center gap-5 italic">
+-                            <span className="w-12 h-px bg-white/10" /> 踰꾪????ㅻТ 吏??踰좎씠??-                        </p>
+-                        <div className="grid grid-cols-3 gap-12">
+-                            {[
+-                                { title: "議곗쭅???ㅺ퀎", desc: "?ㅽ??몄뾽 ?쒖? ?몄묶 諛?R&R 媛?대뱶?쇱씤", tag: "Guide" },
+-                                { title: "梨꾩슜 媛?대뱶", desc: "吏곴뎔蹂?梨꾩슜 怨듦퀬 諛고룷 諛??쒖? JD ?쒗뵆由?, tag: "Template" },
+-                                { title: "湲됱뿬 ?뺤궛 媛?대뱶", desc: "湲곗큹 湲됱뿬 怨꾩궛 諛?4? 蹂댄뿕 ?ㅻТ踰?, tag: "HR Basic" },
+-                            ].map((item) => (
+-                                <div key={item.title} className="bg-[#16181d] border border-white/5 p-12 rounded-[3rem] hover:bg-white/5 transition-all group relative">
+-                                    <span className="text-[9px] font-black text-[#d4af37] border border-[#d4af37]/30 px-3 py-1.5 rounded-full uppercase mb-8 inline-block tracking-widest">{item.tag}</span>
+-                                    <h4 className="text-2xl font-black text-white mb-4 tracking-tight">{item.title}</h4>
+-                                    <p className="text-sm text-gray-500 leading-relaxed mb-10 italic">{item.desc}</p>
+-                                    <button className="text-[11px] font-black text-[#d4af37] uppercase tracking-[0.2em] border-b-2 border-[#d4af37]/30 pb-1.5 hover:border-[#d4af37] transition-all">媛?대뱶 ?대엺 ??/button>
+-                                </div>
+-                            ))}
+-                        </div>
+-                    </section>
++                        </section>
+ 
++                        {/* [?뱀뀡 2] ?ㅻТ 媛?대뱶 */}
++                        <section className="mb-20">
++                            <p className="text-[12px] text-gray-600 font-black mb-12 uppercase tracking-[0.4em] flex items-center gap-5 italic">
++                                <span className="w-12 h-px bg-white/10" /> 踰꾪????ㅻТ 吏??踰좎씠??+                            </p>
++                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
++                                {[
++                                    { title: "議곗쭅???ㅺ퀎", desc: "?ㅽ??몄뾽 ?쒖? ?몄묶 諛?R&R 媛?대뱶?쇱씤", tag: "Guide" },
++                                    { title: "梨꾩슜 媛?대뱶", desc: "吏곴뎔蹂?梨꾩슜 怨듦퀬 諛고룷 諛??쒖? JD ?쒗뵆由?, tag: "Template" },
++                                    { title: "湲됱뿬 ?뺤궛 媛?대뱶", desc: "湲곗큹 湲됱뿬 怨꾩궛 諛?4? 蹂댄뿕 ?ㅻТ踰?, tag: "HR Basic" },
++                                ].map((item) => (
++                                    <div key={item.title} className="bg-[#16181d] border border-white/5 p-12 rounded-[2rem] hover:bg-white/5 transition-all group relative">
++                                        <span className="text-[9px] font-black text-[#d4af37] border border-[#d4af37]/30 px-3 py-1.5 rounded-full uppercase mb-8 inline-block tracking-widest">{item.tag}</span>
++                                        <h4 className="text-2xl font-black text-white mb-4 tracking-tight group-hover:text-[#d4af37] transition-colors">{item.title}</h4>
++                                        <p className="text-sm text-gray-500 leading-relaxed mb-10 italic">{item.desc}</p>
++                                        <button className="text-[11px] font-black text-[#d4af37] uppercase tracking-[0.2em] border-b-2 border-[#d4af37]/30 pb-1.5 hover:border-[#d4af37] transition-all">媛?대뱶 ?대엺 ??/button>
++                                    </div>
++                                ))}
++                            </div>
++                        </section>
++                    </div>
+                 </div>
+-            </main>
+ 
+-            {/* ?명꽣: 2踰??ъ쭊泥섎읆 理쒗븯???곗륫??理쒖냼?쒖쑝濡?諛곗튂 */}
+-            <footer className="fixed bottom-0 right-0 p-12 opacity-10 text-[11px] font-bold tracking-[0.5em] pointer-events-none uppercase italic">
+-                Butler Agency Strategic Hub 짤 2026
+-            </footer>
++                <footer className="mt-auto pt-20 pb-10 text-center opacity-10 text-[11px] font-bold tracking-[0.5em] pointer-events-none uppercase italic">
++                    Butler Agency Strategic Hub 짤 2026
++                </footer>
++            </main>
+         </div>
+     );
+ }
